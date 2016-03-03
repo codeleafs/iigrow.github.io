@@ -2,7 +2,6 @@
 layout: post
 title:  "Markdown部分语法说明"
 date:   2016-03-03 17:56
-categories: jekyll update
 ---
 
 # Markdown部分语法说明
