@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 title: 锦辰的刻版画
 email: iigrow@outlook.com
 description: 
@@ -7,12 +6,3 @@ baseurl: ""
 url: "http://iigrow.com" 
 github_username:  iigrow
 markdown: kramdown
-=======
-title: 锦辰的一亩三分地
-email: iigrow@outlook.com
-description: 
-baseurl: ""
-url: "http://iigrow.com" 
-github_username:  iigrow
-markdown: kramdown
->>>>>>> f7c5b3a1ba63dcc804cfef442cf850809405953d
