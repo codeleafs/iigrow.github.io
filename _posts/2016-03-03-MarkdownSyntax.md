@@ -1,7 +1,13 @@
 ---
+<<<<<<< HEAD:_posts/2016-03-03-MarkdownSyntax.md
 layout: page
 title: "Markdown部分语法说明"
 date: 2016-03-03 17:56
+=======
+layout: post
+title:  "Markdown部分语法说明"
+date:   2016-03-03 17:56
+>>>>>>> f7c5b3a1ba63dcc804cfef442cf850809405953d:_posts/2016-03-03-MarkdownSyntax.md
 ---
 
 # Markdown部分语法说明
