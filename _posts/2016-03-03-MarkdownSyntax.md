@@ -11,26 +11,39 @@ this is an H1
 == 
     this is an H1
     == 
+    
 this is an H2
 --
+
     this is an H2
     --
+    
 # this is an H1
+
     # this is an H1
    
 ## this is an H2
+
     ## this is an H2
     
 ###### this is an H6
+
     ###### this is an H6
+    
 # this is an H1 #
+
     # this is an H1 #
+    
 ## this is an H2 ##
+
     ## this is an H2 ##
+    
 \> 表示引用
+
 > 表示引用
 
 \>> 子项
+
 >> 子项
 
 */+/- 都可以做无序列表
@@ -38,13 +51,19 @@ this is an H2
 * red
 * green
 * blue
+
 --- 
+
 有序列表前面用 数字. 的方式
+
 1. red
 2. green
 3. blue
+
 ---
+
 列表项之间隔一个空行，则会将项渲染为<p>
+
 * red
 
 * green
@@ -58,6 +77,7 @@ this is an H2
 `console.log();`
 
 至少三个*/- 表示一条分隔线
+
 ***
 
 ---
@@ -71,6 +91,7 @@ this is an H2
 [About](/about/)
 
     [About](/about/)
+    
 同一个页面的锚定位
 
 [tag][id]
@@ -81,21 +102,27 @@ this is an H2
 [id][]
 
 隐藏的锚链接
+
 [id]: http://www.baidu.com "可选的Title标示"
+
     [id]: http://www.baidu.com "可选的Title标示"
+    
 以下渲染为em标签括起来
 
 *single asterisks*
 
     *single asterisks*
+    
 _single underscores_
 
     _single underscores_
+    
 以下渲染为strong标签括起来
 
 **double asterisks**
 
     **double asterisks**
+    
 __double underscores__
 
     __double underscores__
@@ -105,15 +132,21 @@ __double underscores__
 ![Alt text](/path/to/img.jpg)
 
     ![Alt text](/path/to/img.jpg)
+    
 ![Alt text][id1]
 
     ![Alt text][id1]
+    
 隐藏图片
+
 [id1]: path/to/image "可选的Title标示"
+
     [id1]: path/to/image "可选的Title标示"
+    
 <http://www.baidu.com>
 
     <http://www.baidu.com>
+    
 <address@iigrow.com>
 
     <address@iigrow.com>
