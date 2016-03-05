@@ -5,8 +5,6 @@ date: 2016-03-03 17:56
 categories: tools/markdown
 ---
 
-# Markdown部分语法说明
-
 this is an H1
 == 
     this is an H1
