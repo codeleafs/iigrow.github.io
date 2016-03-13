@@ -6,4 +6,3 @@ baseurl: ""
 url: "http://iigrow.com" 
 github_username:  iigrow
 markdown: kramdown
-highlighter: rouge

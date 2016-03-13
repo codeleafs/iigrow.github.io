@@ -9,12 +9,13 @@ categories: React/JSX
 
 通过定义组件类可有效的复用代码
 
-
+    {% highlight %}
     React.createClass({
         render:function(){
             return <div></div>;
         }
     }); 
+    {% endlight %}
 * 定义组件元素:
 
 可通过以下方式创建组件类所对应的组件实例
@@ -108,5 +109,3 @@ React把所有的内联样式都规范化为了驼峰形式，例如:
                     {id:"testid"},
                     React.createElement(Child, null, "world")
                 );
-                
-
