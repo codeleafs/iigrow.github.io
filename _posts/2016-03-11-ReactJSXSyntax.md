@@ -7,7 +7,6 @@ categories: React/JSX
 
 * 定义组件类:
 
-
     React.createClass({
         render:function(){
             return <div></div>;
@@ -15,13 +14,13 @@ categories: React/JSX
     });
 * 定义组件元素:
 
-
+{% highlight JavaScript %}
     React.createElement([tag],[props],[text]|[subnode1[,subnode2]]);
     
     var child1 = React.createElement('li', null, '1');
     var child2 = React.createElement('li', null, '2');
     var root = React.createElement('ul', { id:"testid"}, child1, child2);
-
+{% endlight %}
 * 定义组件工厂:
  
  

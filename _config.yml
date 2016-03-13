@@ -5,4 +5,5 @@ description:
 baseurl: ""
 url: "http://iigrow.com" 
 github_username:  iigrow
+pygments: true
 markdown: kramdown
