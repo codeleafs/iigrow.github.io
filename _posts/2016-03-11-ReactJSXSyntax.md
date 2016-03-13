@@ -7,11 +7,13 @@ categories: React/JSX
 
 * 定义组件类:
 
+{% highlight JavaScript %}
     React.createClass({
         render:function(){
             return <div></div>;
         }
-    });
+    }); 
+{% endlight %}
 * 定义组件元素:
 
 {% highlight JavaScript %}
