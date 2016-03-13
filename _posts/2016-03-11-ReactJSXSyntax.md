@@ -1,6 +1,6 @@
 ---
-layout:page
-title:"JSX基础语法"
+layout: page
+title: "JSX基础语法"
 date: 2016-03-11 22:14
 categories: React/JSX
 ---
