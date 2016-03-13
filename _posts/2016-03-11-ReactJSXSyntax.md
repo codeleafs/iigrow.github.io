@@ -9,13 +9,11 @@ categories: React/JSX
 
 通过定义组件类可有效的复用代码
 
-    {% highlight %}
     React.createClass({
         render:function(){
             return <div></div>;
         }
     }); 
-    {% endlight %}
 * 定义组件元素:
 
 可通过以下方式创建组件类所对应的组件实例
