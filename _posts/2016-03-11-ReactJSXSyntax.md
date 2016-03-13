@@ -10,28 +10,24 @@ categories: React/JSX
 通过定义组件类可有效的复用代码
 
 
-{% highlight JavaScript %}
     React.createClass({
         render:function(){
             return <div></div>;
         }
     }); 
-{% endlight %}
 * 定义组件元素:
 
 可通过以下方式创建组件类所对应的组件实例
 
 
-{% highlight JavaScript %}
     React.createElement([tag],[props],[text]|[subnode1[,subnode2]]);
     
     var child1 = React.createElement('li', null, '1');
     var child2 = React.createElement('li', null, '2');
     var root = React.createElement('ul', { id:"testid"}, child1, child2);
-{% endlight %}
 * 定义组件工厂:
  
- 通过组件工厂可有效的缩减代码量
+通过组件工厂可有效的缩减代码量
  
  
     var myDiv=React.createClass();
