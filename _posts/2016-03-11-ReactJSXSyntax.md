@@ -14,6 +14,7 @@ categories: React/JSX
             return <div></div>;
         }
     });
+    
 * 定义组件元素:
 
 可通过以下方式创建组件类所对应的组件实例
@@ -24,6 +25,7 @@ categories: React/JSX
     var child1 = React.createElement('li', null, '1');
     var child2 = React.createElement('li', null, '2');
     var root = React.createElement('ul', { id:"testid"}, child1, child2);
+    
 * 定义组件工厂:
  
 通过组件工厂可有效的缩减代码量
@@ -37,15 +39,16 @@ React.DOM.* 命名空间下提供了一系列的工厂，这些预定义的工�
 
     React.DOM.div(); // React.createElement('div');
     React.DOM.hr(); // React.createElement('hr');
+    
 * 渲染一个组件:
 
 
-  1. 当标签以小写字母开头时，渲染HTML标签:
+当标签以小写字母开头时，渲染HTML标签:
   
   
     var customDiv = <div></div>;
     ReactDOM.render(customDiv,document.getElementById('example'));
-  2. 当标签是以大写字母开头的本地变量时渲染React组件:
+当标签是以大写字母开头的本地变量时渲染React组件:
   
   
     var CustomComponent=React.createClass(/**/); 
@@ -65,8 +68,9 @@ React.DOM.* 命名空间下提供了一系列的工厂，这些预定义的工�
 
 1. key:是可选的唯一标示符，对于DOM刷新时的性能优化比较重要。
 2. ref:允许父组件在render方法之外保持一个对子组件的引用，可以在组件中的任何地方使用this.refs.XXX获取对应的引用。
-3. dangerouslySetInnerHTML:将HTML内容设置为字符串，通过把字符串设置为_html为主键的对象里，才会起作用，例如:
+3. dangerouslySetInnerHTML:将HTML内容设置为字符串，通过把字符串设置为_html为主键的对象里，才会起作用。
 
+注:
 
     render:function(){
         var htmlString = { __html:"<span></span>" };
@@ -79,7 +83,8 @@ React.DOM.* 命名空间下提供了一系列的工厂，这些预定义的工�
 2. 自定义class用className
 3. React将开始标签与结束标签之间的所有节点保存在一个名为this.props.children的特殊属性中
     
-    
+注:
+
     <CustomComponent><span>abc</span></CustomComponent>
     // this.props.children为<span>abc</span>
 
