@@ -10,10 +10,10 @@ categories: React/JSX
 通过定义组件类可有效的复用代码
 
     React.createClass({
-        render:function(){
+       render:function(){
             return <div></div>;
         }
-    }); 
+    });
 * 定义组件元素:
 
 可通过以下方式创建组件类所对应的组件实例
@@ -54,14 +54,14 @@ React.DOM.* 命名空间下提供了一系列的工厂，这些预定义的工�
 * 设置属性:
     
     
->将对象的属性设置为组件的属性值，如下:
+将对象的属性设置为组件的属性值，如下:
 
     var props = { foo: 'default' };
     var component = <Component {...props} foo={'override'} />; 
     //此处属性值顺序是重要，后面的属性值将会覆盖前面的同名属性
     //JSX会将两个花括号之间的内容渲染为动态值，花括号指明了一个JavaScript上下文环境
     console.log(component.props.foo); // 输出 override
->非DOM属性
+非DOM属性
 
 1. key:是可选的唯一标示符，对于DOM刷新时的性能优化比较重要。
 2. ref:允许父组件在render方法之外保持一个对子组件的引用，可以在组件中的任何地方使用this.refs.XXX获取对应的引用。
@@ -73,7 +73,7 @@ React.DOM.* 命名空间下提供了一系列的工厂，这些预定义的工�
         return <div dangerouslySetInnerHTML={htmlString} ></div>; // 注意使用该属性时，标签的InnerHtml必须为空
     }
 
->特殊属性
+特殊属性
 
 1. 添加for属性时用htmlFor
 2. 自定义class用className
