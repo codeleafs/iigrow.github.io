@@ -7,6 +7,9 @@ categories: React/JSX
 
 * 定义组件类:
 
+通过定义组件类可有效的复用代码
+
+
 {% highlight JavaScript %}
     React.createClass({
         render:function(){
@@ -15,6 +18,9 @@ categories: React/JSX
     }); 
 {% endlight %}
 * 定义组件元素:
+
+可通过以下方式创建组件类所对应的组件实例
+
 
 {% highlight JavaScript %}
     React.createElement([tag],[props],[text]|[subnode1[,subnode2]]);
@@ -25,11 +31,14 @@ categories: React/JSX
 {% endlight %}
 * 定义组件工厂:
  
+ 通过组件工厂可有效的缩减代码量
+ 
  
     var myDiv=React.createClass();
     var myDivFactory = React.createFactory(myDiv);
     var div1=myDivFactory([props],[text]|[subnode1]);
 React.DOM.* 命名空间下提供了一系列的工厂，这些预定义的工厂是预置了第一个参数的React.createElement的简写
+
 
     React.DOM.div(); // React.createElement('div');
     React.DOM.hr(); // React.createElement('hr');
@@ -58,9 +67,11 @@ React.DOM.* 命名空间下提供了一系列的工厂，这些预定义的工�
     //JSX会将两个花括号之间的内容渲染为动态值，花括号指明了一个JavaScript上下文环境
     console.log(component.props.foo); // 输出 override
 >非DOM属性
+
 1. key:是可选的唯一标示符，对于DOM刷新时的性能优化比较重要。
 2. ref:允许父组件在render方法之外保持一个对子组件的引用，可以在组件中的任何地方使用this.refs.XXX获取对应的引用。
 3. dangerouslySetInnerHTML:将HTML内容设置为字符串，通过把字符串设置为_html为主键的对象里，才会起作用，例如:
+
 
     render:function(){
         var htmlString = { __html:"<span></span>" };
@@ -68,9 +79,11 @@ React.DOM.* 命名空间下提供了一系列的工厂，这些预定义的工�
     }
 
 >特殊属性
+
 1. 添加for属性时用htmlFor
 2. 自定义class用className
 3. React将开始标签与结束标签之间的所有节点保存在一个名为this.props.children的特殊属性中
+    
     
     <CustomComponent><span>abc</span></CustomComponent>
     // this.props.children为<span>abc</span>
@@ -90,7 +103,7 @@ React把所有的内联样式都规范化为了驼峰形式，例如:
     var styles={ borderColor:red };
     React.renderComponent(<div style={styles}>...</div>,);
     
-## 注:JSX在编译后都会转化为原生的javascript代码:
+### 注:JSX在编译后都会转化为原生的javascript代码:
 
     var Father, Child;
     var app = <Father id="testid"><Child>world</Child></Father>;
