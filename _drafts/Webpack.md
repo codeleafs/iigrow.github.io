@@ -58,8 +58,43 @@ Loaders是资源文件转换器，以参数形式传入资源文件的源文件�
 9. 一般模块可以更容易导出为loader
 10. Loaders can emit additional arbitrary files
 
+
+Loaders module is expected to export a function.
+
 Loaders通常使用XXX-loader的命名方式，XXX是context name，可以使用XXX-loader或者XXX引用该loader
 loader命名约定和顺序优先是定义在resolveLoader.moduleTemplates用webpack的配置API
+
+Loaders使用方式:
+    1. 使用require声明的方式
+        >
+    require("./loader!./dir/files.ext");
+    //多个loader用!分隔
+    require("style!css!less!bootstrap/less/bootstrap.less");
+    //在前面加上!可以重写loader
+    require("!style!css!less!boostrap/less/bootstrap.less");
+        
+    2. 使用配置文件
+    
+    {
+        module:{
+            loaders:[{test:/\.jade$/,loader:"jade"},
+            {test:/\.css$/,loader:["style","css"]}]
+        }
+    }
+                 
+    3. 使用CLI方式
+    
+    webpack --module-bind jade --module-bind 'css=style!css'
+    
+Loaders可以接受参数，例如url-loader?paramname=value
+
+    require(url-loader?minmetype=image/png!/./file.png");
+    {test:/\.png$/,loader:"url-loader?mimetype=image/png"}
+    {
+        test:/.\png$/, 
+        loader:"url-loader",
+        query:{mimetype:"image/png"}
+    }
 
 >Clever parsing
 
