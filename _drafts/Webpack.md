@@ -100,4 +100,103 @@ Loaders可以接受参数，例如url-loader?paramname=value
 
 >Plugin system
 
+使用插件:
+    
+    var webpack=require("webpack");
+    module.exports={
+      plugin:[
+        new webpack.ResolverPlugin(
+          [new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin("bower.json",["main"])],[]
+        )
+    }
+    
+    var ComponenetPlugin=require("component-webpack-plugin");
+    module.exports={
+        plugin:[
+            new ComponentPlugin()
+        ]
+    }
+    
+    
+webpack配置
+---
+
+    {
+      context:__dirname+"/app",
+      entry:"./entry",
+      output:{
+         path:__dirname+"/dist",
+         filename:"bundle.js"
+    }
+    
+1. context
+
+是entry的基础目录，output.pathinfo缩短到这个目录 
+
+2. entry
+
+捆绑点的入口,可以设置为模块/模块数组(最后一个被export)/对象
+
+    entry:"./entry1"
+    entry:["./entry1","./entry2"]
+    // 会创建多个entry bundles
+    entry:{
+      page1:"./entry1",
+      page2:"./entry2"
+    }
+
+3. output
+
+    output:{
+      filename:'bundle.js', // [name]/[hash]/[chunkhash] 例如：[name].js
+      path:'/built',
+      publishpath:'',
+      chunkFilename:'', //[id]/[name]/[hash]/[chunkhash] 设置non-entry chunks的文件名  The filename of non-entry chunks as relative path inside the output.path directory
+      sourceMapFilename:'',// 默认"[file].map" javascript sourcemap的文件名
+      devtoolModuleFilenameTemplate:'',
+      devtoolFallbackModuleFilenameTemplate:'',
+      devtoolLineToLine:'',
+      hotUpdateChunkFilename:'',
+      hotUpdateMainFilename:'',
+      jsonpFunction:'',
+      hotUpdateFunction:'',
+      pathinfo:'',
+      library:'', // 将bundles以类库方式导出
+      libraryTarget:'',
+      umdNamedDefine:'',
+      sourcePrefix:'',
+      crossOriginLoading:''
+    }
+    
+    >The publicPath specifies the public URL address of the output files when referenced in a browser. For loaders that embed <script> or <link> tags or reference assets like images, publicPath is used as the href or url() to the file when it’s different than their location on disk (as specified by path). This can be helpful when you want to host some or all output files on a different domain or on a CDN. The Webpack Dev Server also uses this to determine the path where the output files are expected to be served from. As with path you can use the [hash] substitution for a better caching profile.
+    
+
+4. module
+    
+    module:{
+      // 每一个loader都有如下属性
+      // test:必须满足的条件
+      // exclude:必须不被满足的条件
+      // include:必须被满足的条件
+      // loader:以!分隔的loaders
+      // loaders:loaders数组
+      loaders:[
+        {
+      ],
+      preloaders:[],
+      postLoaders:[],
+      noParse:'', // 正则表达式或者正则表达式数组 过滤不需要解析的文件
+    }
+    
+        IMPORTANT: The loaders here are resolved relative to the resource which they are applied to. This means they are not resolved relative to the configuration file. If you have loaders installed from npm and your node_modules folder is not in a parent folder of all source files, webpack cannot find the loader. You need to add the node_modules folder as absolute path to the resolveLoader.root option. (resolveLoader: { root: path.join(__dirname, "node_modules") })
+
+    
+5. resolve
+
+    resolve:{
+      alias:{},
+      root:[], // 模块目录的绝对路径 可以用path.resolve('./app/modules')将相对路径转为绝对路径
+      
+    
+    
     npm install webpack -g
