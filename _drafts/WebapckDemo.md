@@ -50,6 +50,40 @@ Code Splitting
 
 TODO:写两种依赖的加载模式
 
+CommonJS
+
+    // base.js
+    /*
+    * code scope
+    */
+    module.exports = base;
+    
+    // common.js
+    var base = require('./base');
+    
+    // require.ensure当调用callback时，dependencies被同步调用
+    require.ensure(dependencies,callback)
+    
+    
+AMD
+
+    // function signature 
+    // dependencies默认为['require','exports','module']
+    // factory的返回值就是这个模块的exported value
+    
+    define(id?:String,dependencies?:String[],factory:Function|Object);
+    
+    define('common',['base'],function(base){});
+    define(['base'],function(base){});
+    define(function(require){
+        var base = require('./base');
+    });
+    
+    require('base');
+    
+    require(dependencies,callback);
+    
+
 webpack has two types of dependencies in its dependency tree: sync and async. Async dependencies act as split points and form a new chunk. After the chunk tree is optimized, a file is emitted for each chunk.
 
 Loaders
