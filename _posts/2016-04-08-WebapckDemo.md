@@ -116,12 +116,12 @@ loader命名约定和顺序优先是定义在resolveLoader.moduleTemplates用web
 使用 Loader
 
 1. 使用require声明的方式
-    
-       require("./loader!./dir/files.ext");
-       //多个loader用!分隔
-       require("style!css!less!bootstrap/less/bootstrap.less");
-       //在前面加上!可以重写loader
-       require("!style!css!less!boostrap/less/bootstrap.less");
+
+        require("./loader!./dir/files.ext");
+        //多个loader用!分隔
+        require("style!css!less!bootstrap/less/bootstrap.less");
+        //在前面加上!可以重写loader
+        require("!style!css!less!boostrap/less/bootstrap.less");
         
 2. 使用配置文件
     
@@ -132,7 +132,7 @@ loader命名约定和顺序优先是定义在resolveLoader.moduleTemplates用web
                  
 3. 使用CLI方式
     
-       webpack --module-bind jade --module-bind 'css=style!css'
+        webpack --module-bind jade --module-bind 'css=style!css'
     
 >Loaders可以接受参数，例如url-loader?paramname=value
 
