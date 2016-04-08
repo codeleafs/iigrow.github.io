@@ -46,10 +46,8 @@ webpack的目标：
 
 webpack的特殊之处
 
-Code Splitting
-
-TODO:写两种依赖的加载模式
-
+### Code Splitting
+---
 CommonJS
 
     // base.js
@@ -63,8 +61,6 @@ CommonJS
     
     // require.ensure当调用callback时，dependencies被同步调用
     require.ensure(dependencies,callback)
-    
-    
 AMD
 
     // function signature 
@@ -83,14 +79,12 @@ AMD
     
     require(dependencies,callback);
     
-
-webpack has two types of dependencies in its dependency tree: sync and async. Async dependencies act as split points and form a new chunk. After the chunk tree is optimized, a file is emitted for each chunk.
-
-Loaders
-
-webpack can only process JavaScript natively, but loaders are used to transform other resources into JavaScript. By doing so, every resource forms a module.
+### Loaders
+---
+webpack只能处理原生JavaScript，但是loader可以把其他资源转为javascript，所以每个资源都可以成为一个模块。
 
 Loaders是导出function的node模块，是资源文件转换器，以参数形式传入资源文件的源文件并返回新的源文件([loaders列表](http://webpack.github.io/docs/list-of-loaders.html))。
+
 1. Loaders支持链式，应用于资源管道，最后的loader返回JavaScript，或者其他任意格式
 2. Loaders支持同步和异步
 3. Loaders使用nodejs执行，可以做任何可能的事在这儿
@@ -102,26 +96,83 @@ Loaders是导出function的node模块，是资源文件转换器，以参数形�
 9. 一般模块可以更容易导出为loader
 10. Loaders can emit additional arbitrary files
 
-TODO:开发一个loader
 
-Clever parsing
+定义 Loader 
 
-webpack has a clever parser that can process nearly every 3rd party library. It even allows expressions in dependencies like so require("./templates/" + name + ".jade"). It handles the most common module styles: CommonJs and AMD.
+Loaders通常使用XXX-loader的命名方式，XXX是context name，可以使用XXX-loader或者XXX引用该loader
+loader命名约定和顺序优先是定义在resolveLoader.moduleTemplates用webpack的配置API
 
-Plugin System
+    // html-loader
+    module.exports = function(){
+      this.cacheable(); // 标识loader是可以被缓存的
+      this.addDependency(); // 如果loader依赖其他资源，使用该方法标识该资源，该方法使得缓存失效或在watch模式下重新编译loader
+    }
 
-TODO:开发一个插件
+使用 Loader
 
-webpack features a rich plugin system. Most internal features are based on this plugin system. This allows you to customize webpack for your needs and distribute common plugins as open source.
+1. 使用require声明的方式
+    
+       require("./loader!./dir/files.ext");
+       //多个loader用!分隔
+       require("style!css!less!bootstrap/less/bootstrap.less");
+       //在前面加上!可以重写loader
+       require("!style!css!less!boostrap/less/bootstrap.less");
+        
+2. 使用配置文件
+    
+        module:{
+            loaders:[{test:/\.jade$/,loader:"jade"},
+            {test:/\.css$/,loader:["style","css"]}]
+        }
+                 
+3. 使用CLI方式
+    
+       webpack --module-bind jade --module-bind 'css=style!css'
+    
+>Loaders可以接受参数，例如url-loader?paramname=value
 
+    require(url-loader?minmetype=image/png!/./file.png");
+    {test:/\.png$/,loader:"url-loader?mimetype=image/png"}
+    {
+        test:/.\png$/, 
+        loader:"url-loader",
+        query:{mimetype:"image/png"}
+    }
+    
+>代码中可能会有指定的依赖，比如CSS的@import、url()等，资源加载用require，路径处理用this.resolve(),css-loader将@import替换为require，url()替换为this.resolve()
+    
+### Plugin System
+---
 
+插件拓展了webpack的潜力。
+
+compiler：描述了webpack环境的所有配置信息，该对象只在webpakc启动时建立一次。
+
+定义 plugin([API](http://webpack.github.io/docs/plugins.html))
+
+    function CustomPlugin(options){
+        
+    }
+    
+    CustomPlugin.prototype.apply = function(compiler){
+      compiler.plugin('done',function(){
+        
+      });
+    }
+    
+    module.exports = CustomPlugin;
+
+使用 plugin
+
+    var CustomPlugin = require('CustomPlugin');
+    //webpack.config.js
+    plugin:[
+      new CustomPlugin({option: true})
+    ] 
+      
 ## How?
 
 install
 
     npm install webpack --save-dev
     npm install less less-loader --save-dev
-    // 如果使用开发者工具
-    npm install webpack-dev-server --save-dev
-    
-    
