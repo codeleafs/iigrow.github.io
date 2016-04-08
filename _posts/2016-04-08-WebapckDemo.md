@@ -1,4 +1,9 @@
-# Webpack
+---
+layout: page
+title: "Webpack"
+date: 2016-04-08 15:10
+categories: webpack
+---
 
 ## Why?
 
