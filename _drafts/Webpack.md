@@ -66,7 +66,7 @@ loader命名约定和顺序优先是定义在resolveLoader.moduleTemplates用web
 
 Loaders使用方式:
     1. 使用require声明的方式
-        >
+    
     require("./loader!./dir/files.ext");
     //多个loader用!分隔
     require("style!css!less!bootstrap/less/bootstrap.less");
