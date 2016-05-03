@@ -1,24 +1,24 @@
-[arrow function](a)
-[classes]
-[enhanced object literals]
-[template strings]
-[destructuring]
-[default+rest+spread]
-[let+const]
-[iterators+for..of]
-[generators]
-[unicode]
-[modules]
-[module loaders]
-[map+set+weakmap+weakset]
-[proxies]
-[symbols]
-[subclassable built-ins]
-[promises]
-[math+number+spring+array+object APIs]
-[binary and octal literals]
-[reflect api]
-[tail calls]
+1. [arrow function](#arrows)
+2. [classes]
+3. [enhanced object literals]
+4. [template strings]
+5. [destructuring]
+6. [default+rest+spread]
+7. [let+const]
+8. [iterators+for..of]
+9. [generators]
+10. [unicode]
+11. [modules]
+12. [module loaders]
+13. [map+set+weakmap+weakset]
+14. [proxies]
+15. [symbols]
+16. [subclassable built-ins]
+17. [promises]
+18. [math+number+spring+array+object APIs]
+19. [binary and octal literals]
+20. [reflect api]
+21. [tail calls]
 
 #arrows
 
@@ -70,15 +70,17 @@ Classes支持基于prototype的继承，super调用，instance，static方法，
         }
     };
     
-Template Strings
+#Template Strings
 
     `hello world`
     `hello
     world` // hello\nworld
     var target="world";
     `hello ${target}`; // hello world
+    GET`${param1}${param2}`;
+    //GET(param1,param2);
 
-Destructuring
+#Destructuring
 
 binding using pattern matching,支持arrays和objects
 未匹配到的字段为undefine
@@ -91,7 +93,7 @@ binding using pattern matching,支持arrays和objects
     fun({key:100});
     var [a=1]=[]; // 可以给元素数组设置默认值，当Destructuring为undefine时，使用默认值
     
-Default\Rest\Spread
+#Default\Rest\Spread
 
     function fun(x,y=1){
         return x+y;
@@ -109,19 +111,46 @@ Default\Rest\Spread
     }
     fun(...[1,2,3])==6 //fun.apply(undefined,[1,2,3]);
     
-let\const
+#let\const
 
 let是块级作用域
 const 是块级作用域和常量
 
-iterators\for of
+#iterators\for of
 
-generators
+for...of...遍历数据时，会自动去寻找Iterator接口
+    
+    let personal={
+        [Symbol.iterator](){
+            let pre =0 ,cur =1;
+            return {
+                next(){
+                    [pre,cur] = [cur,pre+cur];
+                    return ={done:fasle,value:cur}
+                }
+            }
+        }
+    }
+    
+    for (let n of personal){
+        console.log(n);
+    }
+    
+    // 可以使用fucntion*和yield方便的生成Generator，
+    //  function＊返回一个Generator实例
+    let personal={
+        [Symbol.iterator]:function*(){
+            var pre=0,cur=1;
+            for(;;){
+                var tmp=pre;
+                pre=cur;
+                cur+=tmp;
+                yield cur;
+            }
+        }
+    }
 
-unicode
-
-
-modules
+#modules
 
 implicitly async model 隐式异步模型
 请求模块的时候代码才会被执行
@@ -140,3 +169,21 @@ implicitly async model 隐式异步模型
     import lb,{pi} from "lib/mathplusplus"  
     
 module loaders
+
+#map+set+weakmap+weakset
+
+    let setA= new Set();
+    setA.add();
+    setA.clear();
+    setA.delete();
+    
+    let mapA=new Map();
+    mapA.set();
+    mapA.get();
+    
+    var wm=new WeakMap();
+    
+    var ws=new WeakSet();
+    
+#proxies
+    
