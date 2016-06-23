@@ -58,6 +58,9 @@ Loaders是资源文件转换器，以参数形式传入资源文件的源文件�
 9. 一般模块可以更容易导出为loader
 10. Loaders can emit additional arbitrary files
 
+>Chunk optimization
+>如果两个chunk包括相同的module，则两个module只使用一个，module的parent是这两个chunk
+>
 
 Loaders module is expected to export a function.
 
@@ -116,6 +119,12 @@ Loaders可以接受参数，例如url-loader?paramname=value
             new ComponentPlugin()
         ]
     }
+    
+Chunk分三种:
+1. entry chunk: chunk包含一个runtime和一堆modules，如果包含module 0(wepack是以整数序列作为模块ID)就会执行它，否则当有一个chunk使用module 0时执行它。
+2. normal chunk: normal chunk只包含一堆module，target为web时，module被包裹在jsonp callback中，The chunk also contains a list of chunk id that it fulfills
+3. initial chunk: initial chunk是一个normal chunk，不同的是优化的时候会计算初始加载事件，这种chunk通常跟commonsChunkPlugin一起使用。
+
     
     
 webpack配置
@@ -200,3 +209,9 @@ webpack配置
     
     
     npm install webpack -g
+    
+格局是对场的一种认知，
+
+处理问题看能不能拔高一个层次去看，去处理，不忽略小处，不纠结小处。
+指一个人看问题的深度和心胸的宽广度。
+格局就是对某个领域的认知和对未来趋势的把握

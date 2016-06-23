@@ -5,6 +5,9 @@ date: 2016-03-11 22:14
 categories: React/JSX
 ---
 
+JSX是javascript语法的扩展。
+JSX可以用简洁和熟悉的语法用属性定义树结构
+
 * 定义组件类:
 
 通过定义组件类可有效的复用代码
