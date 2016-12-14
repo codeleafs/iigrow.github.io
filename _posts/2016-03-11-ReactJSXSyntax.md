@@ -108,6 +108,8 @@ React.DOM.* 命名空间下提供了一系列的工厂，这些预定义的工�
         return <div onClick={this.handleClick}>...</div>
     }
 
+> 默认情况下事件都是在冒泡阶段被触发，如果要在捕获阶段触发，需要对事件名添加Capture后缀，比如：onClickCapture
+
 * 设置样式
 
 React把所有的内联样式都规范化为了驼峰形式，例如:
