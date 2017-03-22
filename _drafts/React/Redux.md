@@ -1,4 +1,18 @@
 
+# Redux是什么
+
+  Redux is a predictable state container for JavaScript apps.
+
+# 产生原因
+
+  目标是创建一个状态管理库，来提供最简化 API，但同时做到行为的完全可预测，
+  因此才得以实现日志打印，热加载，时间旅行，同构应用，录制和重放，而不需要任何开发参与。
+
+  My goal was to create a state management library with minimal API but completely predictable behavior
+
+#
+
+
 # overview 
 Redux is a predictable state container for JavaScript apps.
 
