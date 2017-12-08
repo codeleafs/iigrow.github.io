@@ -1,14 +1,13 @@
 
-然而架构的问题并不在组件之内，而是在组件之间：与其他系统之间的接口，交互以及集成——包括底层的技术基础设施。
-但是架构规范里几乎不涉及这些方面，所以在这些方面发生问题之前，架构师和开发人员都不会给予关注。
+架构的问题并不在组件之内，而是在组件之间：与其他系统之间的接口，交互以及集成——包括底层的技术基础设施。
 
-那些很多被架构师每天在使用着的思想：框架，代理，层次，接口，消息通知，连接器…这都是与间隙（gaps）相关的！[...] 
+那些很多被架构师每天在使用着的思想：框架，代理，层次，接口，消息通知，连接器…这都是与间隙（gaps）相关的！
+
 架构是一种用于连接软件设计师们一起工作的粘合剂，共同创造一个弹性的、灵活的、可扩展的以及最终可用的系统。
-
 
 任何系统必有其自身的架构属性。
 An architecture—a system’s attributes—and what an architect produces—a setof documents—definitely are not the same thing.
-An architectural description (AD) is a set of artifacts that documents anarchitecture in a way its stakeholders can understand and demonstrates that thearchitecture has met their concerns.
+An architectural description (AD) is a set of artifacts that documents an architecture in a way its stakeholders can understand and demonstrates that thearchitecture has met their concerns.
 石头记：选录这个观点并把它放在本文第一个，是想摧毁架构师的个人主义和英雄主义，以及提醒架构的ownership在团队。特别是在大型组织中，软件架构有时是不受控制的。
 
 软件架构是软件组件及其属性，组件之间关系组成的系统结构。
